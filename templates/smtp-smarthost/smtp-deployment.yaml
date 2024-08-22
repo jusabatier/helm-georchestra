@@ -65,8 +65,7 @@ spec:
             port: smtp
           initialDelaySeconds: 30
       {{- if .Values.hostAliases }}
-      # yamllint disable rule:indentation
-      hostAliases: {{- include "common.tplvalues.render" (dict "value" .Values.hostAliases "context" $) | nindent 8 }}
-      # yamllint enable rule:indentation
+      hostAliases:
+        {{- .Values.hostAliases | toYaml | nindent 8 }}
       {{- end }}
 {{- end -}}
