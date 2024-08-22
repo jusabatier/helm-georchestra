@@ -41,4 +41,9 @@ spec:
       - name: gn4-kibana-config
         configMap:
           name: {{ include "georchestra.fullname" . }}-gn4-kibana-config
+      {{- if .Values.hostAliases }}
+      # yamllint disable rule:indentation
+      hostAliases: {{- include "common.tplvalues.render" (dict "value" .Values.hostAliases "context" $) | nindent 8 }}
+      # yamllint enable rule:indentation
+      {{- end }}
 {{- end }}

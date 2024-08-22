@@ -56,5 +56,10 @@ spec:
       - name: gn4-es-data
         persistentVolumeClaim:
           claimName: {{ include "georchestra.fullname" . }}-gn4-es-data
+      {{- if .Values.hostAliases }}
+      # yamllint disable rule:indentation
+      hostAliases: {{- include "common.tplvalues.render" (dict "value" .Values.hostAliases "context" $) | nindent 8 }}
+      # yamllint enable rule:indentation
+      {{- end }}
 {{- end }}
 

@@ -84,5 +84,10 @@ spec:
       imagePullSecrets:
       - name: {{ $webapp.registry_secret }}
       {{- end }}
+      {{- if .Values.hostAliases }}
+      # yamllint disable rule:indentation
+      hostAliases: {{- include "common.tplvalues.render" (dict "value" .Values.hostAliases "context" $) | nindent 8 }}
+      # yamllint enable rule:indentation
+      {{- end }}
 
 {{- end }}
