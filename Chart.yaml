@@ -1,6 +1,6 @@
 apiVersion: v2
 name: georchestra
-description: A Helm chart to deploy geOrchestra instances into k8s clusters.
+description: A Helm chart to deploy geOrchestra instances into k8s clusters. (Fork jusabatier)
 
 # A chart can be either an 'application' or a 'library' chart.
 #
