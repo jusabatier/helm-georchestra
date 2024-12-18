@@ -72,7 +72,7 @@ spec:
           httpGet:
             path: /mapstore/configs/config.json
             port: 8080
-          failureThreshold: 5
+          failureThreshold: 12
           periodSeconds: 15
       volumes:
       - name: georchestra-datadir
